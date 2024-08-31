@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Workspace setup: Environment variables | codeanywhere-docs</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Workspace setup: Environment variables">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html">
+<meta property="og:url" content="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html">
+<meta property="og:site_name" content="codeanywhere-docs">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Workspace setup: Environment variables">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Workspace setup: Environment variables","url":"https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./workspace-setup-11-environment-variables_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/codeanywhere-docs/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://code-institute-students.github.io/codeanywhere-docs/">codeanywhere-docs</a></h1>
+      
+
+      <h1 id="workspace-setup-environment-variables">Workspace setup: Environment variables</h1>
+
+<p class="sup-intro">Setting up your environment variables.</p>
+
+<hr>
+
+<h2 id="environment-variables">Environment variables<a class="anchorjs-link " href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html#environment-variables" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>The <b>environment</b> means where the project is run. Codeanywhere provides an
+environment to develop - Heroku provides an environment for hosting/production.
+A <b>variable</b> is analogous to a “bucket” that stores a value for access later.
+In code, they are declared like <code>planet = "Earth"</code> or <code>let answer = 42</code>. Combine
+them into an environment variable and you have a stored value that is not
+declared in the code; This allows different values to be set in each environment
+without having to change the code. More importantly, they are used to store
+sensitive information that should not be written in the code or be available for
+anyone to see, such as secret keys and access credentials.</p>
+
+<h2 id="codeanywhere-settings">Codeanywhere settings<a class="anchorjs-link " href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html#codeanywhere-settings" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p><a href="https://docs.app.codeanywhere.com/configuration/environment-variables/" target="_blank" rel="noreferrer">Codeanywhere docs</a></p>
+
+<p>Env vars can be set in the
+<a href="https://app.codeanywhere.com/" target="_blank" rel="noreferrer">Codeanywhere dashboard</a>. If set in the
+dashboard, the scope is global. Be careful to use unique names if you have
+multiple projects.</p>
+
+<p><img src="./workspace-setup-11-environment-variables_files/codeanywhere-dashboard-env-vars.png" alt="Codeanywhere environment variables page within the dashboard"></p>
+
+<p>After restarting the Codeanywhere workspace, all terminal sessions will have the
+variables available.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app.py
+</span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">"test"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="envpy">env.py<a class="anchorjs-link " href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html#envpy" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p>To use an env.py file, create one in the root directory of the workspace - the
+same level as the app.py/manage.py file that will be executed for Flask or
+Django projects.</p>
+
+<p>Set the variable using the os module with this command
+<code>os.environ["variable_name"] = value</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># env.py
+</span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"envpy_test"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"envpy"</span>
+</code></pre></div></div>
+
+<p>As these variables are set using code, they do not exist in the terminal - the
+echo command will not work. To check these are working, you will need to import
+them into the python file and print them.</p>
+
+<p><img src="./workspace-setup-11-environment-variables_files/file-directory-env.png" alt="file directory showing an env.py file"></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app.py
+</span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="s">"env.py"</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">env</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">"envpy_test"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/workspace/gpenv <span class="o">(</span>main<span class="o">)</span> <span class="nv">$ </span>python app.py
+envpy
+</code></pre></div></div>
+
+<div class="hint warning">
+  <div class="hint-icon"></div>
+  <div>
+    <p>
+        Remember! Always add your env.py file to the <b>.gitignore</b> file so you don't commit your secret variables to your git repository; This is extremely important.
+    </p>
+    <p>
+        API services may scan GitHub repositories for exposed API keys, and if one is found, access will be halted until corrective action is taken. If your API key is exposed, anyone who finds it can use it and may cause your account to be charged excess usage fees, as well as having access to your data.
+    </p>
+  </div>
+</div>
+
+<div id="navigation-container">
+  <div class="navigation HIDE" id="previous">
+    <a href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html#">
+      <div class="arrow">⇦</div>
+      <div class="column">
+        <p class="direction">Previous</p>
+        <p>
+          PAGE TITLE
+        </p>
+      </div>
+    </a>
+  </div>
+  <div class="navigation HIDE" id="next">
+    <a href="https://code-institute-students.github.io/codeanywhere-docs/workspace-setup/workspace-setup-11-environment-variables.html#">
+      <div class="column">
+        <p class="direction">Next</p>
+        <p>
+          PAGE TITLE
+        </p>
+      </div>
+      <div class="arrow">⇨</div>
+    </a>
+  <div>
+</div>
+</div></div>
+
+
+      
+    </div>
+    <script src="./workspace-setup-11-environment-variables_files/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body></html>
