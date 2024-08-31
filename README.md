@@ -41,7 +41,7 @@ Project set-up Setting up a new project
 7. [Using environment variables on Codeanywhere](https://github.com/MohamedMesto/workspace-setup/workspace_links/ orkspace-setup-11-environment-variables.html)
 8. [Create_Django_workspace](https://github.com/MohamedMesto/workspace-setup/workspace_links/Create_Django_workspace.pdf)
 9. [Environment_variables](https://github.com/MohamedMesto/workspace-setup/workspace_links/Environment_variables.pdf)
-
+10. [Cloud_IDE_good_practices](https://github.com/MohamedMesto/workspace-setup/workspace_links/Cloud_IDE_good_practices.pdf)
 
 
 
