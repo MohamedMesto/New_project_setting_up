@@ -38,8 +38,9 @@ Project set-up Setting up a new project
 4. [How to migrate an existing project from Gitpod to Codeanywhere](https://github.com/MohamedMesto/workspace-setup/workspace_links/workspace-setup-41-open-gitpod-workspace.html)
 5. [Additional setup notes for Django projects](https://github.com/MohamedMesto/workspace-setup/workspace_links/workspace-setup-61-django.html)
 6. [Notes on general IDE good practices](https://github.com/MohamedMesto/workspace-setup/workspace_links/workspace-setup-51-ide-good-practices.html)
-7. [Using environment variables on Codeanywhere](https://github.com/MohamedMesto/workspace-setup/workspace_links/workspace-setup-11-environment-variables.html)
-
+7. [Using environment variables on Codeanywhere](https://github.com/MohamedMesto/workspace-setup/workspace_links/ orkspace-setup-11-environment-variables.html)
+8. [Create_Django_workspace](https://github.com/MohamedMesto/workspace-setup/workspace_links/Create_Django_workspace.pdf)
+9. [Environment_variables](https://github.com/MohamedMesto/workspace-setup/workspace_links/Environment_variables.pdf)
 
 
 
